@@ -4,6 +4,8 @@ import Layout from "./Layout/Layout"
 import Welcome from "./Pages/Welcome"
 import ErrorPage from "./Components/ErrorPage"
 import FetchPokemon from "./Pages/Pokemon"
+import SinglePokemon from "./Pages/SinglePokemon"
+import PokemonList from "./Pages/PokemonList"
 
 function App() {
 
@@ -12,11 +14,11 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />} errorElement={<ErrorPage/>}/>
         <Route path='/' element={<Layout />} errorElement={<ErrorPage/>}>
-          <Route path='/' element={<Welcome />} errorElement={<ErrorPage/>}/>
+          <Route index element={<Welcome />} errorElement={<ErrorPage/>}/>
+          <Route path='/pokemonlist' element={<PokemonList />} errorElement={<ErrorPage/>}/>
           <Route path='/pokemon' element={<FetchPokemon />} errorElement={<ErrorPage/>}/>
-        </Route>
-
-        
+          <Route path='/singlepokemon/:name' element={<SinglePokemon />} errorElement={<ErrorPage/>}/>
+        </Route>        
       </Routes>
     </main>
   )

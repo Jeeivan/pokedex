@@ -1,37 +1,34 @@
-import usePokemon from "../api/hooks/Pokemon.tsx";
+import FavPokemon from "../Components/FavPokemon/FavPokemon.tsx";
+import PokemonSearch from "../Components/PokemonSearch/PokemonSearch.tsx";
+import { useState } from "react";
+import PokemonListBtn from "../Components/utils/PokemonListBtn.tsx";
 
 interface Pokemon {
-    name: string,
-    url: string
+  name: string;
+  url: string;
 }
 
 const Pokemon = () => {
-    const { data, status, error, hasNextPage, isFetchingNextPage, ref } = usePokemon()
+  const [showFavourites, setShowFavourites] = useState(false);
+  const [filteredPokemon, setFilteredPokemon] = useState<Pokemon[]>([]);
+  
 
-    return status === "pending" ?
-    <div>Loading...</div> : 
-    status  === "error" ?
-    <div>{error?.message}</div> : (
-        <div className="container">
-        <h3>Fetch Pokemon</h3>
-        <div>
-            {data?.pages.map((page) => {
-                return page.data.results.map((pokemon: Pokemon) => (
-                    <div key={pokemon?.name}>{pokemon?.name}</div>
-                ))
-            })}
-        </div>
-
-        <div ref={ref}>
-            <br />
-                {isFetchingNextPage ? "Loading more pokemon..." : ""}
-            <br />
-        </div>
-        {!hasNextPage && (
-            <div>No more pokemon left!</div>
-        )}
-        </div>
-    )
+  return (
+    <div className="container">
+      <PokemonListBtn />
+      <br />
+      <PokemonSearch
+        setShowFavourites={setShowFavourites}
+        filteredPokemon={filteredPokemon}
+        setFilteredPokemon={setFilteredPokemon}
+      />
+      <FavPokemon
+        showFavourites={showFavourites}
+        setShowFavourites={setShowFavourites}
+        setFilteredPokemon={setFilteredPokemon}
+      />
+    </div>
+  );
 };
 
-export default Pokemon
+export default Pokemon;
