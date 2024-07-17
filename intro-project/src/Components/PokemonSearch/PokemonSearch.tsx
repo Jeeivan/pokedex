@@ -43,6 +43,9 @@ const PokemonSearch = ({ setShowFavourites, filteredPokemon, setFilteredPokemon 
     setShowFavourites(false)
   };
 
+  console.log(filteredPokemon);
+  
+
   return (
     <div>
       <input

@@ -29,7 +29,7 @@ const FavPokemon = ({ showFavourites, setShowFavourites, setFilteredPokemon }: P
     const clearFavourite = () => {
       localStorage.removeItem('fav-pokemon')
       setPokemonArr(['No favourite pokemon selected'])
-    }
+    }   
     
 
   return (
@@ -41,13 +41,13 @@ const FavPokemon = ({ showFavourites, setShowFavourites, setFilteredPokemon }: P
             Clear Favourites
         </Button>
         {showFavourites && (
-          <>
+          <div>
           {pokemonArr.map((pokemon, index) => (
             pokemon != "No favourite pokemon selected" ?
             <PokemonImg name={pokemon} key={index}/> :
             <h3 key={index}>No favourite pokemon selected</h3>
           ))}
-          </>
+          </div>
         )}
     </div>
   )

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import useSinglePokemon from "../api/hooks/SinglePokemon";
+import useSinglePokemon from "../../api/hooks/SinglePokemon";
 import { Card } from "@streets-heaver/shui2";
-import ToggleFav from "../Components/ToggleFav/ToggleFav";
-import PokemonListBtn from "../Components/utils/PokemonListBtn";
+import ToggleFav from "../../Components/ToggleFav/ToggleFav";
+import PokemonListBtn from "../../Components/utils/PokemonListBtn";
 
 type Ability = {
   ability: {
@@ -32,6 +32,9 @@ const SinglePokemon = () => {
     return <div>{error?.message}</div>;
   }
 
+  console.log(data);
+  
+
   return (
     <div>
       <PokemonListBtn />
@@ -39,7 +42,7 @@ const SinglePokemon = () => {
         <Card>
           <ToggleFav name={pokemonName} />
           <h4>Species- {data.name}</h4>
-          <p>Weight- {data.weight}</p>
+          <p data-testid={"weight"}>Weight- {data.weight}</p>
           <p>Height- {data.height}</p>
           <h5>Type- {data.types[0].type.name}</h5>
           <div>

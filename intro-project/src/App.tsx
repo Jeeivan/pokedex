@@ -4,7 +4,7 @@ import Layout from "./Layout/Layout"
 import Welcome from "./Pages/Welcome"
 import ErrorPage from "./Components/ErrorPage"
 import FetchPokemon from "./Pages/Pokemon"
-import SinglePokemon from "./Pages/SinglePokemon"
+import SinglePokemon from "./Pages/SinglePokemon/SinglePokemon"
 import PokemonList from "./Pages/PokemonList"
 
 function App() {
