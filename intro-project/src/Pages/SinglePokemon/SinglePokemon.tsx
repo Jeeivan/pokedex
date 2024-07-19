@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useSinglePokemon from "../../api/hooks/SinglePokemon";
 import { Card } from "@streets-heaver/shui2";
 import ToggleFav from "../../Components/ToggleFav/ToggleFav";
-import PokemonListBtn from "../../Components/utils/PokemonListBtn";
+import classes from "./SinglePokemon.module.scss";
 
 type Ability = {
   ability: {
@@ -32,34 +32,72 @@ const SinglePokemon = () => {
     return <div>{error?.message}</div>;
   }
 
-  console.log(data);
-  
-
   return (
-    <div>
-      <PokemonListBtn />
+    <div className={classes.pageContainer}>
       {data && (
-        <Card>
-          <ToggleFav name={pokemonName} />
-          <h4>Species- {data.name}</h4>
-          <p data-testid={"weight"}>Weight- {data.weight}</p>
-          <p>Height- {data.height}</p>
-          <h5>Type- {data.types[0].type.name}</h5>
-          <div>
-            Abilities-
-            {data.abilities?.map((ability: Ability, index: number) => {
-              return <div key={index}>{ability.ability.name}</div>;
-            })}
+        <div className={classes.cardContainer}>
+          <div className={classes.pokemonDetails}>
+            <Card className={classes.pokemonDetailCard}>
+              <div className={classes.detailContainer}>
+                <div className={classes.pokemonValue}>
+                  Weight: {data.weight}
+                </div>
+                <div className={classes.pokemonValue}>
+                  Height: {data.height}
+                </div>
+              </div>
+            </Card>
+            <Card className={classes.pokemonDetailCard}>
+              <div className={classes.detailContainer}>
+                <h5 className={classes.pokemonLabel}>Type:</h5>
+                <div className={classes.pokemonValue}>
+                  {data.types[0].type.name}
+                </div>
+              </div>
+            </Card>
+            <Card className={classes.pokemonDetailCard}>
+              <div className={classes.detailContainer}>
+                <h5 className={classes.pokemonLabel}>Abilities:</h5>
+                {data.abilities?.map((ability: Ability, index: number) => {
+                  return (
+                    <div key={index} className={classes.pokemonValue}>
+                      {ability.ability.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
           </div>
-          <img src={data.sprites.front_default} alt="pokemon pic" />
-          <h6>Stats:</h6>
-          {data?.stats?.map((stat: Stat, index: number) => (
-            <div key={index}>
-              <div>{stat.stat.name}</div>
-              <div>{stat.base_stat}</div>
+          <div className={classes.singlePokemonContainer}>
+            <Card className={classes.card}>
+              <ToggleFav name={pokemonName} />
+              <h4 className={classes.name}>{data.name}</h4>
+              <div className={classes.imgContainer}>
+                <img
+                  className={classes.singlePokemonImg}
+                  src={data.sprites.other?.["official-artwork"].front_default}
+                  alt="pokemon pic"
+                />
+                <img
+                  className={classes.singlePokemonImgShiny}
+                  src={data.sprites.other?.["official-artwork"].front_shiny}
+                  alt="shiny pokemon pic"
+                />
+              </div>
+            </Card>
+          </div>
+          <Card className={classes.card}>
+            <div className={classes.statsContainer}>
+              <h5 className={classes.pokemonLabel}>Stats:</h5>
+              {data?.stats?.map((stat: Stat, index: number) => (
+                <div key={index} className={classes.stats}>
+                  <div className={classes.statName}>{stat.stat.name}:</div>
+                  <div className={classes.statValue}>{stat.base_stat}</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </Card>
+          </Card>
+        </div>
       )}
     </div>
   );

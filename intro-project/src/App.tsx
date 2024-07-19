@@ -3,9 +3,9 @@ import NotFound from "./NotFound/NotFound"
 import Layout from "./Layout/Layout"
 import Welcome from "./Pages/Welcome"
 import ErrorPage from "./Components/ErrorPage"
-import FetchPokemon from "./Pages/Pokemon"
+import FetchPokemon from "./Pages/Home/Pokemon"
 import SinglePokemon from "./Pages/SinglePokemon/SinglePokemon"
-import PokemonList from "./Pages/PokemonList"
+import PokemonList from "./Pages/PokemonList/PokemonList"
 
 function App() {
 

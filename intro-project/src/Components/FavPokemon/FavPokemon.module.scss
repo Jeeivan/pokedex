@@ -1,0 +1,22 @@
+.btnContainer {
+    display: flex;
+    gap: 8px
+}
+
+.favPokemonContainer {
+    margin-top: 40px;
+}
+
+.container {
+        position: fixed;
+        right: 0;
+        width: fit-content;
+        height: 75vh;
+        overflow-y: auto;
+        margin-right: 20px;
+
+    h3 {
+        color: darkred;
+        font-weight: bold;
+    }
+}

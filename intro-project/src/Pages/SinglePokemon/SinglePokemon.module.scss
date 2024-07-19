@@ -1,0 +1,88 @@
+.pageContainer {
+    padding: 20px;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pokemonDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pokemonDetailCard {
+    margin: 30px;
+    padding: 10px;
+}
+
+.detailContainer {
+    width: 100px;
+}
+
+.pokemonLabel {
+    font-weight: bold;
+    color: darkslategray;
+    font-size: 18px;
+}
+
+.pokemonValue {
+    font-size: 16px;
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+
+.singlePokemonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.singlePokemonImg {
+    width: 320px;
+    margin: 20px;
+}
+
+.singlePokemonImgShiny {
+    @extend .singlePokemonImg;
+    transform: rotateY(180deg)
+}
+
+.imgContainer {
+    display: flex;
+}
+
+.name {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: darkred;
+}
+
+.stats {
+    padding: 5px
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: 50px;
+}
+
+.statName {
+    color: darkslategray;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.statValue {
+    color: lightskyblue;
+    font-size: 18px;
+    font-weight: bold;
+}

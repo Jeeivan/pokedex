@@ -1,0 +1,14 @@
+.pokemonListContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.listHeading {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: darkkhaki;
+    margin-top: 20px;
+    margin-right: 10px;
+}

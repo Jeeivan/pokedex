@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: 80vh;
+    margin-top: 5%;
+    overflow-y: auto;
+    margin-left: 30px;
+}

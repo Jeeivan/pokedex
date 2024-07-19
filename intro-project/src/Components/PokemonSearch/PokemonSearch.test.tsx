@@ -1,4 +1,4 @@
-import { testFilteredPokemon, TestPokemonSearch, TestPokemonSearchElements } from "./PokemonSearch.constants";
+import TestPokemonSearchElements, { testFilteredPokemon, TestPokemonSearch } from "./PokemonSearch.constants";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

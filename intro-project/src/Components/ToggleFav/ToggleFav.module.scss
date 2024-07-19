@@ -1,0 +1,16 @@
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.btn :hover {
+    font-weight: bold;
+}
+
+.textFav {
+    color: greenyellow;
+}
+
+.textUnfav {
+    color: red;
+}

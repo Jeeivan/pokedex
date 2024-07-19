@@ -1,20 +1,16 @@
 import { Button } from "@streets-heaver/shui2";
 import { useState } from "react";
 import PokemonImg from "../PokemonImg/PokemonImg";
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
+import classes from './FavPokemon.module.scss'
 
 type PokemonFavProps = {
   showFavourites: boolean;
   setShowFavourites: (value: boolean) => void;
-  setFilteredPokemon: (value: Pokemon[]) => void
 }
 
-const FavPokemon = ({ showFavourites, setShowFavourites, setFilteredPokemon }: PokemonFavProps) => {
+const FavPokemon = ({ showFavourites, setShowFavourites }: PokemonFavProps) => {
     const [pokemonArr, setPokemonArr] = useState<string[]>(['No favourite pokemon selected'])
+    const [favText, setFavText] = useState(false)
 
     const getFavourite = () => {
         const favPokemon = localStorage.getItem('fav-pokemon')
@@ -22,8 +18,8 @@ const FavPokemon = ({ showFavourites, setShowFavourites, setFilteredPokemon }: P
           const favPokemonArr: string[] = JSON.parse(favPokemon!)
           setPokemonArr(favPokemonArr)
         }
-        setFilteredPokemon([])
-        setShowFavourites(true)
+        setShowFavourites(!showFavourites)
+        setFavText(!favText)
     }
 
     const clearFavourite = () => {
@@ -33,15 +29,17 @@ const FavPokemon = ({ showFavourites, setShowFavourites, setFilteredPokemon }: P
     
 
   return (
-    <div>
-        <Button onClick={getFavourite}>
-            Favourites
+    <div className={classes.container}>
+      <div className={classes.btnContainer}>
+        <Button type="primary" onClick={getFavourite}>
+            {!favText ? "Show Favourites" : "Hide Favourties"}
         </Button>
-        <Button onClick={clearFavourite}>
+        <Button type="secondary" onClick={clearFavourite}>
             Clear Favourites
         </Button>
+      </div>
         {showFavourites && (
-          <div>
+          <div className={classes.favPokemonContainer}>
           {pokemonArr.map((pokemon, index) => (
             pokemon != "No favourite pokemon selected" ?
             <PokemonImg name={pokemon} key={index}/> :

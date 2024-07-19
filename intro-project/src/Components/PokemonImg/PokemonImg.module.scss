@@ -1,0 +1,40 @@
+.pokemonCard {
+    display: flex;
+    color: darkslateblue;
+    margin: 10px;
+}
+
+.cardContainer {
+    width: 200px;
+}
+
+.pokemonCard :hover {
+    color: darkkhaki;
+}
+
+.pokemonName {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+.pokemonImg {
+    width: 100px;
+    margin-left: 45px;
+}
+
+.pokemonShinyImg {
+    width: 100px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+// .pokemonCard:hover .pokemonImg{
+//     opacity: 0;
+// }
+
+// .pokemonCard:hover .pokemonShinyImg{
+//     opacity: 1;
+// }
+
+

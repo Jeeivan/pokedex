@@ -1,0 +1,37 @@
+.searchBtn {
+    background-color: red;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.pokemonSearchContainer {
+    position: fixed;
+    top: 0;
+    width: fit-content;
+    height: 65vh;
+    margin-top: 200px;
+    overflow-y: auto;
+
+}
+
+.searchContainer {
+    margin-left: 30px;
+
+    input {
+        border: 2px solid;
+        padding: 8px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    h3 {
+        color: darkred;
+        font-weight: bold;
+    }
+}
+

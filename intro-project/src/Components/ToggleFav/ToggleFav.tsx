@@ -1,5 +1,6 @@
 import { Button } from "@streets-heaver/shui2";
 import { useEffect, useMemo, useState } from "react";
+import classes from './ToggleFav.module.scss'
 
 type ToggleFavProps = {
     name: string | undefined
@@ -29,9 +30,9 @@ const ToggleFav = ({name}: ToggleFavProps) => {
         }, [name, favPokemonArr])
 
   return (
-    <div>
-        <Button onClick={setFav}>
-                {!favourite ? <div>☆</div> : <div>★</div>}
+    <div className={classes.btnContainer}>
+        <Button className={classes.btn} type="primary" onClick={setFav}>
+                {!favourite ? <div className={classes.textFav}>Select as favourite ☆</div> : <div className={classes.textUnfav}>Unselect as favoruite ★</div>}
         </Button>
     </div>
   )

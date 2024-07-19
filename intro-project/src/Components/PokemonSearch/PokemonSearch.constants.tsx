@@ -65,7 +65,7 @@ export const TestPokemonSearch = ({ setShowFavourites, filteredPokemon, setFilte
       );
 }
 
-export const TestPokemonSearchElements = {
+const TestPokemonSearchElements = {
 
     pokemonSearchBtn: () => screen.getByTestId('pokemon-search-btn'),
 
@@ -73,3 +73,5 @@ export const TestPokemonSearchElements = {
 
     filteredPokemonDetail: () => screen.getByTestId('filtered-pokemon')
 }
+
+export default TestPokemonSearchElements
